@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/Kenney Future.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 1 )
+
+[node name="VotingPanel" type="Node2D"]
+position = Vector2( 300, 345 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 0.28
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Votacion"
+valign = 1
+
+[node name="NoButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 160.0
+margin_right = 193.0
+margin_bottom = 20.0
+text = "NO"
+icon_align = 1
+
+[node name="YesButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 120.0
+margin_right = 153.0
+margin_bottom = 20.0
+text = "SI"
+icon_align = 1
