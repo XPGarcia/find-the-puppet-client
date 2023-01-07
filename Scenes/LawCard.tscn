@@ -18,7 +18,6 @@ font_data = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="BG" type="Sprite" parent="."]
-position = Vector2( 68, 102 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 1 )
 
@@ -29,10 +28,10 @@ position = Vector2( -3.33331, -6.10352e-05 )
 shape = SubResource( 4 )
 
 [node name="Type" type="Label" parent="."]
-margin_left = 40.0
-margin_top = 25.0
-margin_right = 99.0
-margin_bottom = 43.0
+margin_left = -30.0
+margin_top = -80.0
+margin_right = 29.0
+margin_bottom = -62.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "LEY"
@@ -40,10 +39,10 @@ align = 1
 valign = 1
 
 [node name="Description" type="Label" parent="."]
-margin_left = 17.0
-margin_top = 121.0
-margin_right = 120.0
-margin_bottom = 195.0
+margin_left = -50.0
+margin_top = 20.0
+margin_right = 53.0
+margin_bottom = 94.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Robarse el dinero del gobierno está permitido siempre y cuando se construyan carreteras"

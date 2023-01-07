@@ -8,6 +8,9 @@ func _ready():
 		self.hide()
 
 func _on_BeginButton_pressed():
+	if len(player_vars.players) < 5:
+		return
+	
 	var data = {
 		"roomId": player_vars.roomId,
 		"playerId": player_vars.playerId,

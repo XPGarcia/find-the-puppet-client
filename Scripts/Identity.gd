@@ -29,7 +29,7 @@ func _update_player_sprite():
 	profile_sprite.set_texture(sprite)
 	
 func _update_role_sprite_and_win_condition():
-	if player_vars.get_role() == "facista":
+	if player_vars.get_role() == "fascista":
 		role_sprite.set_texture(facist_sprite)
 		facist_win_condition.visible = true
 	else:

@@ -19,6 +19,7 @@ PlayerVariables="*res://Scripts/PlayerVariables.gd"
 MessageManager="*res://Scripts/MessageManager.gd"
 ClientWebsocket="*res://Scripts/ClientWebsocket.gd"
 Events="*res://Scripts/Events.gd"
+CardEventManager="*res://Scripts/CardEventManager.gd"
 
 [display]
 
