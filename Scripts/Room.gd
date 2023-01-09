@@ -24,5 +24,5 @@ func _update_player_position_labels():
 	for player in player_vars.players:
 		var path = "PlayerNames/PlayerName" + str(position)
 		var playerName = get_node(path)
-		playerName.text = str(position) + " " + player.playerName
+		playerName.text = str(position) + ". " + player.playerName
 		position = position + 1

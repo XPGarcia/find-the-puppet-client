@@ -12,6 +12,7 @@ func _on_JoinButton_pressed():
 		"action": "join",
 		"payload": {
 			"roomId": player_vars.roomId,
+			"playerId": player_vars.playerId,
 			"playerName": player_vars.playerName,
 		}
 	}
@@ -26,6 +27,7 @@ func _on_CreateButton_pressed():
 		"eventType": "room",
 		"action": "create",
 		"payload": {
+			"playerId": player_vars.playerId,
 			"playerName": player_vars.playerName,
 		}
 	}

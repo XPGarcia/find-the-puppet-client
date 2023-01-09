@@ -13,7 +13,7 @@ func receive(message):
 	
 	_update_player_vars(message)
 	
-	if message.responseType == "room" and message.status == "INROOM":
+	if message.responseType == "room":
 		_handle_room_message(message)
 		return
 	elif message.responseType == "game":
@@ -36,8 +36,9 @@ func _update_player_vars(message):
 		player_vars.update_profile()
 		
 func _handle_room_message(message):
-	player_vars.status = message.status
-	if player_vars.playerProfile == null or player_vars.playerProfile == "":
+	if "status" in message:
+		player_vars.status = message.status
+	if player_vars.status == "INROOM" and (player_vars.playerProfile == null or player_vars.playerProfile == ""):
 		var data = {
 			"eventType": "room",
 			"action": "updateProfile",
@@ -47,9 +48,9 @@ func _handle_room_message(message):
 			}
 		}
 		send(data)
-	
 	events.emit_signal("game_updated")
-	var _scene = get_tree().change_scene("res://Scenes/Room.tscn")
+	if player_vars.status == "INROOM":
+		var _scene = get_tree().change_scene("res://Scenes/Room.tscn")
 	
 func _handle_game_message(message):
 	var game = JSON.parse(message.message).result

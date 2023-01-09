@@ -62,6 +62,13 @@ func get_player_in_turn():
 	var index = get_player_in_turn_index()
 	return players[index]
 	
+func get_player_by_id(playerId):
+	var searchedPlayer
+	for player in players:
+		if player.playerId == playerId:
+			searchedPlayer = player
+	return searchedPlayer
+	
 func is_law_election():
 	return card_on_board != null and card_on_board.type == "law"
 	
