@@ -40,6 +40,8 @@ func _update_role_sprite_and_win_condition():
 		
 func _update_partner_sprite():
 	var partner = _get_fascist_partner()
+	if partner == null:
+		return
 	var partner_profile = load("res://Assets/" + partner.playerProfile)
 	profile_partner_sprite.visible = true
 	profile_partner_sprite.set_texture(partner_profile)
@@ -50,7 +52,7 @@ func _get_fascist_partner():
 		if playerId != player_vars.playerId:
 			partnerId = playerId		
 	var partner
-	for player in player_vars.players:
+	for player in player_vars.clients:
 		if player.playerId == partnerId:
 			partner = player
 	return partner	

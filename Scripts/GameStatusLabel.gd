@@ -11,7 +11,7 @@ func _ready():
 
 func _on_update():
 	var player_in_turn = player_vars.get_player_in_turn()
-	if player_vars.status == "VOTING":
+	if player_vars.status == "LAW_VOTING":
 		self.text = player_in_turn.playerName + " propuso una nueva ley"
 	else:	
 		self.text = player_in_turn.playerName + " está jugando"

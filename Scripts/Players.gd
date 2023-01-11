@@ -16,7 +16,7 @@ func _ready():
 func _on_update():
 	var player_in_turn_index = player_vars.get_player_in_turn_index()
 	for i in range(0, 4):
-		var player = player_vars.players[player_in_turn_index]
+		var player = player_vars.game.players[player_in_turn_index]
 		_set_player_container(player_containers[i], player)
 		player_in_turn_index = _new_player_in_turn_index(player_in_turn_index)
 		
@@ -27,7 +27,7 @@ func _set_player_container(player_container, player):
 	player_container.get_node("Name").text = player.playerName
 	
 func _new_player_in_turn_index(player_in_turn_index):
-	if player_in_turn_index < len(player_vars.players) - 1:
+	if player_in_turn_index < len(player_vars.game.players) - 1:
 		return player_in_turn_index + 1
 	else:
 		return 0

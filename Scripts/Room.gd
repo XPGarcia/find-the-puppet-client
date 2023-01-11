@@ -21,7 +21,7 @@ func _update_labels():
 	
 func _update_player_position_labels():
 	var position = 1
-	for player in player_vars.players:
+	for player in player_vars.clients:
 		var path = "PlayerNames/PlayerName" + str(position)
 		var playerName = get_node(path)
 		playerName.text = str(position) + ". " + player.playerName

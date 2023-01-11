@@ -20,6 +20,7 @@ MessageManager="*res://Scripts/MessageManager.gd"
 ClientWebsocket="*res://Scripts/ClientWebsocket.gd"
 Events="*res://Scripts/Events.gd"
 CardEventManager="*res://Scripts/CardEventManager.gd"
+VotingEventManager="*res://Scripts/VotingEventManager.gd"
 
 [display]
 

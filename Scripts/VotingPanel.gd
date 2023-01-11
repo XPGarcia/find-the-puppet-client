@@ -18,7 +18,7 @@ func _on_update():
 		"action": "",
 		"payload": {}
 	}
-	if player_vars.status == "VOTING":
+	if player_vars.status == "LAW_VOTING":
 		self.visible = true
 	else:
 		self.visible = false

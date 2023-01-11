@@ -10,7 +10,8 @@ var x_padding = 150
 
 func _ready():
 	events.connect("game_updated", self, "_on_update")
-	_draw_card(2)
+	if len(player_vars.hand) == 0:
+		_draw_card(2)
 		
 func _on_update():
 	if player_vars.get_player_in_turn().playerId == player_vars.playerId and !player_vars.has_drawn_card:

@@ -10,6 +10,9 @@ func receive(message):
 	if message.responseType == "connection":
 		player_vars.playerId = message.playerId
 		return
+		
+	if player_vars.eliminated:
+		return
 	
 	_update_player_vars(message)
 	
@@ -29,7 +32,7 @@ func receive(message):
 	
 func _update_player_vars(message):
 	player_vars.roomId = message.roomId
-	player_vars.players = message.clients
+	player_vars.clients = message.clients
 	if "hostName" in message:
 		player_vars.hostName = message.hostName
 	if player_vars.playerProfile == null or player_vars.playerProfile == "":
@@ -54,16 +57,13 @@ func _handle_room_message(message):
 	
 func _handle_game_message(message):
 	var game = JSON.parse(message.message).result
+	_handle_new_round(game)
 	player_vars.game = game
 	
-	if "status" in message:
-		player_vars.status = message.status
-	elif player_vars.game.playerInTurn == player_vars.playerId:
-		player_vars.status = "PLAYING"
-	else:
-		player_vars.status = "WAITING"
+	_set_player_status(message)
 		
 	events.emit_signal("game_updated")
+	
 	if get_tree().current_scene.name != "Game":
 		var _scene = get_tree().change_scene("res://Scenes/Game.tscn")
 		
@@ -73,12 +73,7 @@ func _handle_deck_message(message):
 	events.emit_signal("game_updated")
 	
 func _handle_voting_message(message):
-	if "status" in message:
-		player_vars.status = message.status
-	elif player_vars.game.playerInTurn == player_vars.playerId:
-		player_vars.status = "PLAYING"
-	else:
-		player_vars.status = "WAITING"
+	_set_player_status(message)
 	
 	var data = JSON.parse(message.message).result
 	if "card" in data:
@@ -87,6 +82,26 @@ func _handle_voting_message(message):
 	elif "game" in data:
 		player_vars.card_on_board = null
 		player_vars.game = data.game
+		_set_player_status(message)
 		events.emit_signal("game_updated")
 		
 	events.emit_signal("voting_on_going")
+	
+func _set_player_status(message):
+	if "status" in message:
+		player_vars.status = message.status
+	elif player_vars.game.playerInTurn == player_vars.playerId:
+		player_vars.status = "PLAYING"
+	else:
+		player_vars.status = "WAITING"
+		
+func _handle_new_round(new_game):
+	if !("roundsPlayed" in player_vars.game) or player_vars.game.roundsPlayed == new_game.roundsPlayed:
+		return
+	var data = {
+		"playerId": player_vars.playerId,
+		"roomId": player_vars.roomId,
+		"eventType": "voting",
+		"action": "startEliminateVoting",
+	}
+	send(data)

@@ -55,8 +55,8 @@ anchor_bottom = 1.0
 margin_top = 21.952
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 9 )
-text = "- Haber promulgado 6 leyes fascistas.
+text = "- Haber promulgado 3 leyes fascistas.
 
-- Haber promulgado 3 leyes fascistas y tener electo a un presidente fascista.
+- Haber promulgado 2 leyes fascistas y tener electo a un presidente fascista.
 
 - Eliminar o destituir a todos los demócratas."

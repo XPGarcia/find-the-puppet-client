@@ -5,7 +5,7 @@ var hostName
 var playerId
 var playerName
 var playerProfile
-var players = []
+var clients = []
 var status
 var game = {}
 var websocket_client
@@ -13,6 +13,7 @@ var hand = []
 var card_on_board
 var has_drawn_card = false
 var has_played = false
+var eliminated = false
 
 func add_cards(cards):
 	var newHand = []
@@ -34,10 +35,12 @@ func is_host():
 	
 func president_name():
 	var president
-	for player in players:
+	for player in game.players:
 		if player.playerId == game.playerAsPresident:
 			president = player
-	return president.playerName
+	if president != null:
+		return president.playerName
+	return ""
 	
 func get_role():
 	var role = "demócrata"
@@ -47,24 +50,24 @@ func get_role():
 	return role
 	
 func update_profile():
-	for player in players:
+	for player in clients:
 		if player.playerId == playerId:
 			playerProfile = player.playerProfile
 			
 func get_player_in_turn_index():
 	var index
-	for i in len(players):
-		if players[i].playerId == game.playerInTurn:
+	for i in len(game.players):
+		if game.players[i].playerId == game.playerInTurn:
 			index = i
 	return index
 	
 func get_player_in_turn():
 	var index = get_player_in_turn_index()
-	return players[index]
+	return game.players[index]
 	
 func get_player_by_id(playerId):
 	var searchedPlayer
-	for player in players:
+	for player in game.players:
 		if player.playerId == playerId:
 			searchedPlayer = player
 	return searchedPlayer
@@ -77,7 +80,7 @@ func reset():
 	hostName = null
 	playerName = null
 	playerProfile = null
-	players = []
+	clients = []
 	status = null
 	game = {}
 	hand = []

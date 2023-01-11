@@ -13,11 +13,11 @@ size = 50
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 24
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 40
+size = 24
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -107,7 +107,7 @@ margin_bottom = 45.023
 
 [node name="Label" type="Label" parent="GameStatus/Room"]
 anchor_bottom = 1.0
-margin_right = 201.0
+margin_right = 122.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Sala ID:"
@@ -118,8 +118,8 @@ valign = 1
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -167.0
-margin_right = 11.0
+margin_left = -144.0
+margin_right = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "10"
