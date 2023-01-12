@@ -16,7 +16,11 @@ func _start_law_voting(card):
 		"eventType": "voting",
 		"action": "startLawVoting",
 		"payload": {
-			"playerId": player_vars.playerId,
+			"player": {
+				"playerId": player_vars.playerId,
+				"playerName": player_vars.playerName,
+				"playerProfile": player_vars.playerProfile
+			},
 			"card": card
 		}
 	}

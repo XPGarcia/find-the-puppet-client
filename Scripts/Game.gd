@@ -18,33 +18,12 @@ func _ready():
 	events.connect("voting_on_going", self, "_on_update")
 
 func _on_update():
-	if player_vars.status == "DEMOCRATS_WON":
-		_update_end_game_screen()
-		win_label.text = "Los demócratas ganaron"
-	elif player_vars.status == "FASCISTS_WON":
-		_update_end_game_screen()
-		win_label.text = "Los fascistas ganaron"
-	elif _is_eliminated_player():
-		_update_eliminated_player_screen()
-	elif player_vars.status == "ELIMINATE_VOTING" or player_vars.status == "PRESIDENT_VOTING" or player_vars.status == "WAITING_VOTING":
+	if _is_eliminated_player():
+		var _scene = get_tree().change_scene("res://Scenes/Eliminated.tscn")
+	if player_vars.status == "ELIMINATE_VOTING" or player_vars.status == "PRESIDENT_VOTING" or player_vars.status == "WAITING_VOTING":
 		_update_player_election_screen()
 	else:
 		_reset()
-
-func _update_end_game_screen():
-	left_side.visible = false
-	right_side.visible = false
-	eliminated.visible = false
-	player_election = false
-	
-	end_game.visible = true
-	
-func _update_eliminated_player_screen():
-	left_side.visible = false
-	right_side.visible = false
-	player_election = false
-	
-	eliminated.visible = true
 	
 func _is_eliminated_player():
 	var is_eliminated = true
@@ -57,15 +36,9 @@ func _is_eliminated_player():
 func _update_player_election_screen():
 	left_side.visible = false
 	right_side.visible = false
-	eliminated.visible = false
-	
 	player_election.visible = true
 	
 func _reset():
 	left_side.visible = true
 	right_side.visible = true
-	eliminated.visible = false
 	player_election.visible = false
-
-func _on_NewGameButton_pressed():
-	var _scene = get_tree().change_scene("res://Scenes/StartMenu.tscn")

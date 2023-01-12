@@ -9,9 +9,14 @@ var player
 func _on_SelectedButton_pressed():
 	if player_vars.status == "ELIMINATE_VOTING":
 		_eliminate_player_vote()
+	elif player_vars.status == "PRESIDENT_VOTING":
+		_president_player_vote()
 		
 func _eliminate_player_vote():
 	voting_event_manager.vote_for_eliminate_player(player.playerId)
+	
+func _president_player_vote():
+	voting_event_manager.vote_for_president_player(player.playerId)
 		
 func set_player(data):
 	player = data

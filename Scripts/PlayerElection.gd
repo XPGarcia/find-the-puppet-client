@@ -92,7 +92,12 @@ func _on_OmitButton_pressed():
 		"playerId": player_vars.playerId,
 		"roomId": player_vars.roomId,
 		"eventType": "voting",
-		"action": "collectVoteForEliminateVoting",
-		"payload": {}
+		"payload": {
+			"playerId": player_vars.playerId,
+		}
 	}
+	if player_vars.status == "ELIMINATE_VOTING":
+		vote_data.action = "collectVoteForEliminateVoting"
+	elif player_vars.status == "PRESIDENT_VOTING":
+		vote_data.action = "collectVoteForPresidentVoting"
 	message_manager.send(vote_data)

@@ -12,6 +12,12 @@ func receive(message):
 		return
 		
 	if player_vars.eliminated:
+		var _scene = get_tree().change_scene("res://Scenes/Eliminated.tscn")
+		return
+		
+	if "status" in message and (message.status == "FASCISTS_WON" or message.status == "DEMOCRATS_WON"):
+		player_vars.status = message.status
+		var _scene = get_tree().change_scene("res://Scenes/EndGame.tscn")
 		return
 	
 	_update_player_vars(message)
@@ -28,7 +34,6 @@ func receive(message):
 	elif message.responseType == "voting":
 		_handle_voting_message(message)
 		return
-	return
 	
 func _update_player_vars(message):
 	player_vars.roomId = message.roomId
@@ -96,12 +101,17 @@ func _set_player_status(message):
 		player_vars.status = "WAITING"
 		
 func _handle_new_round(new_game):
-	if !("roundsPlayed" in player_vars.game) or player_vars.game.roundsPlayed == new_game.roundsPlayed:
+	if player_vars.game.size() == 0 or player_vars.game.roundsPlayed == new_game.roundsPlayed:
 		return
+		
 	var data = {
 		"playerId": player_vars.playerId,
 		"roomId": player_vars.roomId,
 		"eventType": "voting",
-		"action": "startEliminateVoting",
 	}
-	send(data)
+	if new_game.roundsForNextElections - player_vars.game.roundsForNextElections == 1:
+		data.action = "startPresidentVoting"
+		send(data)
+	else:
+		data.action = "startEliminateVoting"
+		send(data)

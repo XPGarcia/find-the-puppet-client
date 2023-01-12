@@ -15,3 +15,16 @@ func vote_for_eliminate_player(selectedPlayerId):
 		}
 	}
 	message_manager.send(vote_data)
+	
+func vote_for_president_player(selectedPlayerId):
+	var vote_data = {
+		"playerId": player_vars.playerId,
+		"roomId": player_vars.roomId,
+		"eventType": "voting",
+		"action": "collectVoteForPresidentVoting",
+		"payload": {
+			"playerId": player_vars.playerId,
+			"selectedPlayerId": selectedPlayerId
+		}
+	}
+	message_manager.send(vote_data)

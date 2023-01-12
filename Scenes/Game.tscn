@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/background.png" type="Texture" id=1]
 [ext_resource path="res://Assets/lienzo_3.png" type="Texture" id=2]
@@ -55,14 +55,6 @@ extents = Vector2( 131, 101.25 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 14
-font_data = ExtResource( 10 )
-
-[sub_resource type="DynamicFont" id=9]
-size = 36
-font_data = ExtResource( 10 )
-
-[sub_resource type="DynamicFont" id=10]
-size = 24
 font_data = ExtResource( 10 )
 
 [node name="Game" type="Node2D"]
@@ -497,77 +489,7 @@ script = ExtResource( 21 )
 position = Vector2( 0, 600 )
 script = ExtResource( 11 )
 
-[node name="EndGame" type="Node2D" parent="."]
-visible = false
-
-[node name="Sprite" type="Sprite" parent="EndGame"]
-position = Vector2( 450, 450 )
-texture = ExtResource( 9 )
-
-[node name="WinLabel" type="Label" parent="EndGame/Sprite"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -720.0
-margin_top = -375.0
-margin_right = -70.0
-margin_bottom = -225.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 9 )
-text = "Los demócratas ganaron"
-align = 1
-valign = 1
-
-[node name="NewGameButton" type="Button" parent="EndGame/Sprite"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -560.0
-margin_top = -470.0
-margin_right = -230.0
-margin_bottom = -400.0
-custom_fonts/font = SubResource( 10 )
-text = "Nuevo juego"
-
 [node name="PlayerElection" parent="." instance=ExtResource( 22 )]
 visible = false
 
-[node name="Eliminated" type="Node2D" parent="."]
-visible = false
-
-[node name="Sprite" type="Sprite" parent="Eliminated"]
-position = Vector2( 450, 450 )
-texture = ExtResource( 9 )
-
-[node name="EliminatedLabel" type="Label" parent="Eliminated/Sprite"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -720.0
-margin_top = -375.0
-margin_right = -70.0
-margin_bottom = -225.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 9 )
-text = "Has sido eliminado"
-align = 1
-valign = 1
-
-[node name="NewGameButton" type="Button" parent="Eliminated/Sprite"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -560.0
-margin_top = -470.0
-margin_right = -230.0
-margin_bottom = -400.0
-custom_fonts/font = SubResource( 10 )
-text = "Nuevo juego"
-
 [connection signal="pressed" from="RightSide/Board/EndButton" to="RightSide/Board/EndButton" method="_on_EndButton_pressed"]
-[connection signal="pressed" from="EndGame/Sprite/NewGameButton" to="." method="_on_NewGameButton_pressed"]
-[connection signal="pressed" from="Eliminated/Sprite/NewGameButton" to="." method="_on_NewGameButton_pressed"]

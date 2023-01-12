@@ -67,7 +67,7 @@ func get_player_in_turn():
 	
 func get_player_by_id(playerId):
 	var searchedPlayer
-	for player in game.players:
+	for player in clients:
 		if player.playerId == playerId:
 			searchedPlayer = player
 	return searchedPlayer
@@ -87,3 +87,4 @@ func reset():
 	card_on_board = null
 	has_drawn_card = false
 	has_played = false
+	eliminated = false
