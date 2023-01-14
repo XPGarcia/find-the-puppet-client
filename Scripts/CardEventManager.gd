@@ -59,6 +59,8 @@ func _execute_action(card):
 		_mk_ultra()
 	elif card.code == "corruptionInvestigation":
 		_corruption_investigation()
+	elif card.code == "presidentialPower":
+		_presidential_power()
 	
 func _coup():
 	player_vars.game.playerAsPresident = player_vars.playerId
@@ -81,6 +83,9 @@ func _mk_ultra():
 			player_role = "FASCISTA"
 	player_vars.game_message = player_vars.selected_player.playerName + " es " + player_role
 	_update_game_in_server()
+	
+func _presidential_power():
+	player_vars.has_played = false
 	
 func _select_player():
 	var _scene = get_tree().change_scene("res://Scenes/SelectPlayer.tscn")

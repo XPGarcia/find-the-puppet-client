@@ -88,14 +88,14 @@ func _handle_voting_message(message):
 	_set_player_status(message)
 	
 	var data = JSON.parse(message.message).result
+	if "message" in data:
+			player_vars.game_message = data.message
+			events.emit_signal("set_game_message")
+			
 	if "card" in data:
 		player_vars.card_on_board = data.card
 		events.emit_signal("put_card_on_board")
 	elif "game" in data:
-		if "message" in data:
-			player_vars.game_message = data.message
-		
-		player_vars.card_on_board = null
 		player_vars.game = data.game
 		_set_player_status(message)
 		events.emit_signal("game_updated")
@@ -139,4 +139,5 @@ func _handle_new_turn(new_game):
 	if player_vars.game.size() == 0 or player_vars.game.turnsPlayed == new_game.turnsPlayed:
 		return
 		
+	player_vars.card_on_board = null
 	player_vars.game_message = ""

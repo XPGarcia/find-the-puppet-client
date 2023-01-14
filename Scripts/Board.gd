@@ -13,7 +13,7 @@ var card_scene
 func _ready():
 	events.connect("game_updated", self, "_on_update")
 	events.connect("put_card_on_board", self, "_on_card_placed")
-	events.connect("set_game_message", self, "_on_game_message_set")
+	events.connect("set_game_message", self, "_set_game_message_label")
 
 func _on_update():
 	_set_game_message_label()
