@@ -12,10 +12,11 @@ var playerProfile
 
 var game = {}
 var status
+var game_message = ""
 
 var hand = []
 var card_on_board
-var selected_player_id
+var selected_player
 var has_drawn_card = false
 var has_played = false
 var eliminated = false

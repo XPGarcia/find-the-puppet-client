@@ -13,7 +13,7 @@ func _on_SelectedButton_pressed():
 	elif player_vars.status == "PRESIDENT_VOTING":
 		_president_player_vote()
 	else:
-		events.emit_signal("select_player", player.playerId)
+		events.emit_signal("select_player", player)
 #		if get_tree().current_scene.name != "Game":
 #			var _scene = get_tree().change_scene("res://Scenes/Game.tscn")
 		

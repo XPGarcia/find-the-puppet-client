@@ -6,14 +6,18 @@ onready var message_manager = get_node("/root/MessageManager")
 
 onready var round_label = get_node("RoundLabel")
 onready var drop_zone = get_node("DropZone")
+onready var game_message_label = get_node("GameMessage")
 
 var card_scene
 
 func _ready():
 	events.connect("game_updated", self, "_on_update")
 	events.connect("put_card_on_board", self, "_on_card_placed")
+	events.connect("set_game_message", self, "_on_game_message_set")
 
 func _on_update():
+	_set_game_message_label()
+	
 	_on_card_placed()
 	round_label.text = "Día " + str(player_vars.game.roundsPlayed + 1)
 	
@@ -22,6 +26,12 @@ func _on_card_placed():
 		_place_card_on_board()
 	else:
 		_remove_card_from_board()
+		
+func _set_game_message_label():
+	if player_vars.game_message != null:
+		game_message_label.text = player_vars.game_message
+	else:
+		game_message_label.text = ""
 
 func _place_card_on_board():
 	if card_scene == null:

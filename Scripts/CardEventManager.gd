@@ -62,42 +62,46 @@ func _execute_action(card):
 	
 func _coup():
 	player_vars.game.playerAsPresident = player_vars.playerId
-	_update_game_in_server()
+	player_vars.game_message = player_vars.playerName + " es el presidente"
+	_update_game_in_server(player_vars.game_message)
 	
 func _corruption_investigation():
 	_select_player()
 	yield(self, "player_selected")
-	player_vars.game.blockedPlayers.append(player_vars.selected_player_id)
-	player_vars.selected_player_id = null
-	_update_game_in_server()
+	player_vars.game.blockedPlayers.append(player_vars.selected_player.playerId)
+	player_vars.game_message = player_vars.selected_player.playerName + " fue bloqueado"
+	_update_game_in_server(player_vars.game_message)
 	
 func _mk_ultra():
 	_select_player()
 	yield(self, "player_selected")
-	var player_role = "DEMOCRAT"
+	var player_role = "DEMOCRATA"
 	for playerId in player_vars.game.governmentPlayers:
-		if playerId == player_vars.selected_player_id:
-			player_role = "FASCIST"
+		if playerId == player_vars.selected_player.playerId:
+			player_role = "FASCISTA"
+	player_vars.game_message = player_vars.selected_player.playerName + " es " + player_role
 	_update_game_in_server()
 	
 func _select_player():
 	var _scene = get_tree().change_scene("res://Scenes/SelectPlayer.tscn")
-	var selected_player_id = yield(events, "select_player")
-	player_vars.selected_player_id = selected_player_id
+	var selected_player = yield(events, "select_player")
+	player_vars.selected_player = selected_player
 	
 	events.emit_signal("game_updated")
 	var _game_scene = get_tree().change_scene("res://Scenes/Game.tscn")
 	emit_signal("player_selected")
 	
 	
-func _update_game_in_server():
+func _update_game_in_server(game_message = null):
+	player_vars.selected_player = null
 	var data = {
 		"playerId": player_vars.playerId,
 		"roomId": player_vars.roomId,
 		"eventType": "game",
 		"action": "update",
 		"payload": {
-			"game": player_vars.game
+			"game": player_vars.game,
+			"message": game_message
 		}
 	}
 	message_manager.send(data)
