@@ -34,6 +34,9 @@ func receive(message):
 	elif message.responseType == "voting":
 		_handle_voting_message(message)
 		return
+	elif message.responseType == "card":
+		_handle_card_message(message)
+		return
 	
 func _update_player_vars(message):
 	player_vars.roomId = message.roomId
@@ -92,6 +95,15 @@ func _handle_voting_message(message):
 		
 	events.emit_signal("voting_on_going")
 	
+func _handle_card_message(message):
+	var data = JSON.parse(message.message).result
+	if "card" in data:
+		player_vars.card_on_board = data.card
+		events.emit_signal("put_card_on_board")
+	else:
+		player_vars.card_on_board = null
+		print("here")
+	
 func _set_player_status(message):
 	if "status" in message:
 		player_vars.status = message.status
@@ -109,7 +121,8 @@ func _handle_new_round(new_game):
 		"roomId": player_vars.roomId,
 		"eventType": "voting",
 	}
-	if new_game.roundsForNextElections - player_vars.game.roundsForNextElections == 1:
+	# delta difference between 4 => (reset election days) - 1 (before reseting)
+	if new_game.roundsForNextElections - player_vars.game.roundsForNextElections == 3:
 		data.action = "startPresidentVoting"
 		send(data)
 	else:

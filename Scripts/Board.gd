@@ -14,14 +14,14 @@ func _ready():
 	events.connect("put_card_on_board", self, "_on_card_placed")
 
 func _on_update():
+	_on_card_placed()
+	round_label.text = "Día " + str(player_vars.game.roundsPlayed + 1)
+	
+func _on_card_placed():
 	if player_vars.card_on_board != null:
 		_place_card_on_board()
 	else:
 		_remove_card_from_board()
-	round_label.text = "Ronda " + str(player_vars.game.roundsPlayed + 1)
-	
-func _on_card_placed():
-	_place_card_on_board()
 
 func _place_card_on_board():
 	if card_scene == null:

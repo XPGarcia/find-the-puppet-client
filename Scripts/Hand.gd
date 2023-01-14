@@ -4,14 +4,14 @@ onready var events = get_node("/root/Events")
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var message_manager = get_node("/root/MessageManager")
 
-var initial_x_position = 120
+var initial_x_position = 80
 var initial_y_position = 100
-var x_padding = 150
+var x_padding = 100
 
 func _ready():
 	events.connect("game_updated", self, "_on_update")
 	if len(player_vars.hand) == 0:
-		_draw_card(2)
+		_draw_card(3)
 		
 func _on_update():
 	if player_vars.get_player_in_turn().playerId == player_vars.playerId and !player_vars.has_drawn_card:
@@ -54,6 +54,7 @@ func _map_card_to_scene(card):
 	if card.type == "law":
 		return "LawCard.tscn"
 	if card.quickPlay:
+		print(card)
 		return "QuickActionCard.tscn"
 	return "ActionCard.tscn"
 	

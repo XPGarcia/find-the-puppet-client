@@ -21,6 +21,7 @@ func _on_update():
 func _on_EndButton_pressed():
 	player_vars.has_played = false
 	player_vars.has_drawn_card = false
+	player_vars.card_on_board = null
 	var data = {
 		"roomId": player_vars.roomId,
 		"playerId":  player_vars.playerId,

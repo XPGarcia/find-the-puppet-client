@@ -1,16 +1,21 @@
 extends Node
 
+var websocket_client
+
 var roomId
 var hostName
+var clients = []
+
 var playerId
 var playerName
 var playerProfile
-var clients = []
-var status
+
 var game = {}
-var websocket_client
+var status
+
 var hand = []
 var card_on_board
+var selected_player_id
 var has_drawn_card = false
 var has_played = false
 var eliminated = false

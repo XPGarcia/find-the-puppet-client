@@ -4,6 +4,7 @@ onready var events = get_node("/root/Events")
 onready var card_event_manager = get_node("/root/CardEventManager")
 onready var player_vars = get_node("/root/PlayerVariables")
 
+onready var animator = get_node("AnimationPlayer")
 onready var drop_zone = get_node("/root/Game/RightSide/Board/DropZone")
 
 var card
@@ -17,6 +18,12 @@ func _ready():
 	
 func set_card(new_card):
 	card = new_card
+
+#func _on_Area2D_mouse_entered():
+#	animator.play("CardHover")
+#
+#func _on_Area2D_mouse_exited():
+#	animator.play("LeaveCardHover")
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):

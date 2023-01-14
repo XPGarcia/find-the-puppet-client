@@ -63,3 +63,5 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "El presidente deja el cargo y el que tiene la carta se vuelve el presidente interino hasta las siguientes elecciones"
 autowrap = true
+
+[connection signal="input_event" from="BG/Area2D" to="." method="_on_Area2D_input_event"]
