@@ -10,6 +10,7 @@ var x_padding = 100
 
 func _ready():
 	events.connect("game_updated", self, "_on_update")
+	events.connect("presidential_power", self, "_on_presidential_power_played")
 	if len(player_vars.hand) == 0:
 		_draw_card(3)
 		
@@ -19,8 +20,17 @@ func _on_update():
 		player_vars.has_drawn_card = true
 	
 	_clear_hand()
+	_create_cards_in_hand()
+	
+func _on_presidential_power_played():
+	_clear_hand()
+	_create_cards_in_hand(true)
+		
+func _create_cards_in_hand(only_laws = false):
 	for i in len(player_vars.hand):
 		var card = player_vars.hand[i]
+		if only_laws and card.type != "law":
+			continue
 		var card_scene = _load_card_scene(card)
 		_set_card(card_scene, card)
 		_set_card_position(card_scene, i)

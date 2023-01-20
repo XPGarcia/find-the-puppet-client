@@ -103,7 +103,18 @@ func _handle_voting_message(message):
 	events.emit_signal("voting_on_going")
 	
 func _handle_card_message(message):
+	if "status" in message:
+		player_vars.status = message.status
+	
 	var data = JSON.parse(message.message).result
+	
+	if "message" in data:
+		player_vars.game_message = data.message
+		events.emit_signal("set_game_message")
+		
+	if "game" in data:
+		events.emit_signal("game_updated")
+		
 	if "card" in data:
 		player_vars.card_on_board = data.card
 		events.emit_signal("put_card_on_board")

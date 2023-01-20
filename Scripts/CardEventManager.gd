@@ -5,13 +5,16 @@ signal end_action()
 
 onready var events = get_node("/root/Events")
 onready var player_vars = get_node("/root/PlayerVariables")
+onready var player_upgrades = get_node("/root/PlayerUpgrades")
 onready var message_manager = get_node("/root/MessageManager")
 
 func activate_card(card):
-	player_vars.has_played = true 
-	player_vars.card_on_board = card
+	player_vars.has_played = true
 	if card.type == "law":
-		_start_law_voting(card)
+		if player_upgrades.presidential_power:
+			_approve_law(card)
+		else:
+			_start_law_voting(card)
 	elif card.type == "action":
 		_start_action_card(card)
 		yield(self, "end_action")
@@ -33,6 +36,24 @@ func _start_law_voting(card):
 		}
 	}
 	message_manager.send(data)
+	
+func _approve_law(card):
+	var data = {
+		"playerId": player_vars.playerId,
+		"roomId": player_vars.roomId,
+		"eventType": "card",
+		"action": "approveLaw",
+		"payload": {
+			"player": {
+				"playerId": player_vars.playerId,
+				"playerName": player_vars.playerName,
+				"playerProfile": player_vars.playerProfile
+			},
+			"card": card
+		}
+	}
+	message_manager.send(data)
+	player_upgrades.presidential_power = false
 	
 func _start_action_card(card):
 	var data = {
@@ -86,6 +107,8 @@ func _mk_ultra():
 	
 func _presidential_power():
 	player_vars.has_played = false
+	player_upgrades.presidential_power = true
+	events.emit_signal("presidential_power")
 	
 func _select_player():
 	var _scene = get_tree().change_scene("res://Scenes/SelectPlayer.tscn")

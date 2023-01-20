@@ -22,10 +22,13 @@ func _on_update():
 	round_label.text = "Día " + str(player_vars.game.roundsPlayed + 1)
 	
 func _on_card_placed():
+	_remove_card_from_board()
 	if player_vars.card_on_board != null:
 		_place_card_on_board()
-	else:
-		_remove_card_from_board()
+#	if player_vars.card_on_board != null:
+#		_place_card_on_board()
+#	else:
+#		_remove_card_from_board()
 		
 func _set_game_message_label():
 	if player_vars.game_message != null:

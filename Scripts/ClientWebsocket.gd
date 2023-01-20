@@ -26,7 +26,7 @@ func _closed(was_clean = false):
 	print("Closed, clean: ", was_clean)
 	set_process(false)
 
-func _connected(proto = ""):
+func _connected():
 	_client.get_peer(1).put_packet("{}".to_utf8())
 
 func _on_data():
