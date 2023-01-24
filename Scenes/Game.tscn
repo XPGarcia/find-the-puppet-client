@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/VotingPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/lienzo_2.png" type="Texture" id=8]
 [ext_resource path="res://Assets/lienzo.png" type="Texture" id=9]
-[ext_resource path="res://Fonts/Kenney Future.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scripts/Hand.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/RoleImage.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/Identity.gd" type="Script" id=13]
@@ -22,44 +21,46 @@
 [ext_resource path="res://Assets/patrick.png" type="Texture" id=20]
 [ext_resource path="res://Scripts/GameStatusLabel.gd" type="Script" id=21]
 [ext_resource path="res://Scenes/PlayerElection.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Fonts/GermaniaOne-Regular.ttf" type="DynamicFontData" id=23]
 
 [sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 10 )
+size = 24
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
-font_data = ExtResource( 10 )
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 24
-font_data = ExtResource( 10 )
+size = 30
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 14
-font_data = ExtResource( 10 )
+size = 24
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=1]
-size = 240
-font_data = ExtResource( 10 )
+size = 320
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 150
-font_data = ExtResource( 10 )
+size = 220
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 20
-font_data = ExtResource( 10 )
+size = 30
+font_data = ExtResource( 23 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 131, 101.25 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 14
-font_data = ExtResource( 10 )
+size = 24
+font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=12]
-size = 14
-font_data = ExtResource( 10 )
+size = 18
+font_data = ExtResource( 23 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 19 )
@@ -333,17 +334,17 @@ scale = Vector2( 0.5, 0.5 )
 [node name="DemocratWinCondition" parent="LeftSide/Identity" instance=ExtResource( 15 )]
 visible = false
 margin_left = 50.0
-margin_top = 220.0
+margin_top = 230.0
 margin_right = 510.0
-margin_bottom = 575.0
+margin_bottom = 585.0
 rect_scale = Vector2( 0.55, 0.55 )
 
 [node name="FacistWinCondition" parent="LeftSide/Identity" instance=ExtResource( 14 )]
 visible = false
 margin_left = 50.0
-margin_top = 220.0
+margin_top = 230.0
 margin_right = 510.0
-margin_bottom = 575.0
+margin_bottom = 585.0
 rect_scale = Vector2( 0.55, 0.55 )
 
 [node name="RightSide" type="Node2D" parent="."]
@@ -463,13 +464,13 @@ script = ExtResource( 6 )
 [node name="VotingPanel" parent="RightSide/Board" instance=ExtResource( 7 )]
 
 [node name="RoundLabel" type="Label" parent="RightSide/Board"]
-margin_left = 230.0
-margin_top = 20.0
-margin_right = 348.0
-margin_bottom = 45.0
+margin_left = 218.0
+margin_top = 19.0
+margin_right = 336.0
+margin_bottom = 55.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 7 )
-text = "Ronda 1"
+text = "Día 1"
 align = 1
 valign = 1
 
@@ -486,6 +487,7 @@ margin_right = 274.0
 margin_bottom = 114.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 11 )
+text = "Xavi esta jugando"
 autowrap = true
 script = ExtResource( 21 )
 

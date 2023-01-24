@@ -8,7 +8,7 @@ func _ready():
 		self.hide()
 
 func _on_BeginButton_pressed():
-#	if len(player_vars.clients) != 5:
+#	if len(player_vars.clients) < 5 or len(player_vars.clients) > 8:
 #		return
 	
 	var data = {
