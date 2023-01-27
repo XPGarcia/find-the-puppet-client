@@ -1,14 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/lienzo.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Eliminated.gd" type="Script" id=3]
 [ext_resource path="res://Fonts/GermaniaOne-Regular.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=2]
 size = 36
 font_data = ExtResource( 4 )
 
@@ -17,7 +16,6 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 450, 450 )
-texture = ExtResource( 2 )
 
 [node name="EliminatedLabel" type="Label" parent="Sprite"]
 anchor_left = 0.5
@@ -28,8 +26,8 @@ margin_left = -720.0
 margin_top = -375.0
 margin_right = -70.0
 margin_bottom = -225.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 9 )
 text = "Has sido eliminado"
 align = 1
 valign = 1
@@ -43,7 +41,6 @@ margin_left = -560.0
 margin_top = -470.0
 margin_right = -230.0
 margin_bottom = -400.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 2 )
 text = "Nuevo juego"
-
 [connection signal="pressed" from="Sprite/NewGameButton" to="." method="_on_NewGameButton_pressed"]

@@ -1,232 +1,185 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Assets/background.png" type="Texture" id=1]
-[ext_resource path="res://Assets/lienzo_2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Pluma.png" type="Texture" id=4]
+[ext_resource path="res://Assets/bg/bg_start.png" type="Texture" id=1]
+[ext_resource path="res://Assets/logo.png" type="Texture" id=2]
+[ext_resource path="res://puppet.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/StartMenu.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/NetworkSetup.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/NetworkButtons.gd" type="Script" id=7]
 [ext_resource path="res://Fonts/GermaniaOne-Regular.ttf" type="DynamicFontData" id=8]
 
-[sub_resource type="DynamicFont" id=1]
-size = 300
-font_data = ExtResource( 8 )
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.211765, 0.219608, 0.207843, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="DynamicFont" id=2]
-size = 152
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Fonts/Poppins/Poppins-Bold.ttf"
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = SubResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="DynamicFont" id=6]
-size = 260
-font_data = ExtResource( 8 )
-
-[sub_resource type="StyleBoxEmpty" id=10]
-
-[sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="StyleBoxEmpty" id=12]
-
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Fonts/Poppins/Poppins-Bold.ttf"
 
 [sub_resource type="DynamicFont" id=5]
-size = 64
+size = 20
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
 font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=8]
-size = 260
-font_data = ExtResource( 8 )
-
-[sub_resource type="StyleBoxEmpty" id=13]
-
-[sub_resource type="StyleBoxEmpty" id=14]
-
-[sub_resource type="StyleBoxEmpty" id=15]
-
-[sub_resource type="StyleBoxEmpty" id=16]
-
-[sub_resource type="StyleBoxEmpty" id=9]
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BG" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -512.0
-margin_right = 512.0
-margin_bottom = 512.0
+anchor_left = 0.497927
+anchor_top = 0.493908
+anchor_right = 0.497927
+anchor_bottom = 0.505575
+margin_left = -598.513
+margin_top = -298.345
+margin_right = 599.487
+margin_bottom = 299.655
 texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="Title" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -362.0
-margin_top = 49.0
-margin_right = 2038.0
-margin_bottom = 649.0
+[node name="Panel" type="Panel" parent="."]
+margin_left = 376.0
+margin_top = 77.0
+margin_right = 821.0
+margin_bottom = 555.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="Panel"]
+anchor_left = 0.458659
+anchor_top = 0.00489569
+anchor_right = 0.615963
+anchor_bottom = 0.151339
+margin_left = -105.117
+margin_top = 17.6497
+margin_right = 702.883
+margin_bottom = 465.65
 rect_scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
-
-[node name="TitleLabel" type="Label" parent="Title"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "El Títere"
-align = 1
-valign = 1
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Inputs" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -189.0
-margin_top = -188.0
-margin_right = 184.0
-margin_bottom = 48.0
+margin_left = -132.007
+margin_top = -81.9932
+margin_right = 140.993
+margin_bottom = 73.0068
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="InputRoom" type="TextureRect" parent="Inputs"]
-margin_left = 9.0
-margin_top = 138.0
-margin_right = 2409.0
-margin_bottom = 738.0
-rect_scale = Vector2( 0.15, 0.13 )
-texture = ExtResource( 2 )
+[node name="Name" type="Label" parent="Inputs"]
+margin_left = 8.0
+margin_right = 256.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 3 )
+text = "	Nombre"
 
-[node name="PenImage" type="TextureRect" parent="Inputs/InputRoom"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 15.0002
-margin_top = -415.0
-margin_right = 366.0
-margin_bottom = 419.0
-texture = ExtResource( 4 )
-
-[node name="Room" type="LineEdit" parent="Inputs/InputRoom"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 375.0
-margin_top = 110.0
-margin_right = -235.0
-margin_bottom = -95.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-placeholder_text = "Introduce la sala ID"
-caret_blink = true
-caret_blink_speed = 5.0
-
-[node name="InputName" type="TextureRect" parent="Inputs"]
-margin_left = 9.0
-margin_top = 18.0
-margin_right = 2409.0
-margin_bottom = 618.0
-rect_scale = Vector2( 0.15, 0.13 )
-texture = ExtResource( 2 )
-
-[node name="PenImage" type="TextureRect" parent="Inputs/InputName"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 15.0002
-margin_top = -415.0
-margin_right = 366.0
-margin_bottom = 419.0
-texture = ExtResource( 4 )
-
-[node name="Name" type="LineEdit" parent="Inputs/InputName"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 375.0
-margin_top = 110.0
-margin_right = -235.0
-margin_bottom = -95.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
+[node name="Name2" type="LineEdit" parent="Inputs"]
+margin_left = 8.0
+margin_top = 43.0
+margin_right = 258.0
+margin_bottom = 73.0
+theme = ExtResource( 3 )
+max_length = 12
 placeholder_text = "Introduce tu nombre"
 caret_blink = true
 caret_blink_speed = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Room" type="Label" parent="Inputs"]
+margin_left = 8.0
+margin_top = 84.0
+margin_right = 256.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 5 )
+text = "ID Sala"
+
+[node name="Room2" type="LineEdit" parent="Inputs"]
+margin_left = 8.0
+margin_top = 127.0
+margin_right = 258.0
+margin_bottom = 157.0
+theme = ExtResource( 3 )
+placeholder_text = "Introduce la sala ID"
+caret_blink = true
+caret_blink_speed = 5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Buttons" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -200.0
-margin_top = -350.0
-margin_right = 200.0
+anchor_left = 1.03
+anchor_top = 0.944
+anchor_right = 1.03
+anchor_bottom = 0.944
+margin_left = -765.0
+margin_top = -178.4
+margin_right = -505.0
+margin_bottom = -18.4
+size_flags_vertical = 3
 script = ExtResource( 7 )
 
-[node name="Join" type="TextureRect" parent="Buttons"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 2000.0
-margin_bottom = 250.0
-rect_scale = Vector2( 0.175, 0.15 )
-texture = ExtResource( 2 )
-
-[node name="JoinButton" type="Button" parent="Buttons/Join"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="JoinButton" type="Button" parent="Buttons"]
+margin_top = 18.0
+margin_right = 250.0
+margin_bottom = 58.0
 rect_pivot_offset = Vector2( -859, -144 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 6 )
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/focus = SubResource( 12 )
-custom_styles/normal = SubResource( 7 )
+theme = ExtResource( 3 )
 text = "Entrar sala"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Divider" type="Label" parent="Buttons"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -81.0
-margin_bottom = -9.0
-custom_fonts/font = SubResource( 5 )
+margin_top = 62.0
+margin_right = 260.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 6 )
 text = "o"
 align = 1
 valign = 1
 
-[node name="Create" type="TextureRect" parent="Buttons"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -183.0
-margin_right = 2000.0
-margin_bottom = 417.0
-rect_scale = Vector2( 0.175, 0.15 )
-texture = ExtResource( 2 )
-
-[node name="CreateButton" type="Button" parent="Buttons/Create"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 8 )
-custom_styles/hover = SubResource( 13 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/focus = SubResource( 15 )
-custom_styles/disabled = SubResource( 16 )
-custom_styles/normal = SubResource( 9 )
+[node name="CreateButton" type="Button" parent="Buttons"]
+margin_top = 98.0
+margin_right = 250.0
+margin_bottom = 138.0
+theme = ExtResource( 3 )
 text = "Crear sala"
-
-[connection signal="text_changed" from="Inputs/InputRoom/Room" to="Inputs" method="_on_Room_text_changed"]
-[connection signal="text_changed" from="Inputs/InputName/Name" to="Inputs" method="_on_Name_text_changed"]
-[connection signal="pressed" from="Buttons/Join/JoinButton" to="Buttons" method="_on_JoinButton_pressed"]
-[connection signal="pressed" from="Buttons/Create/CreateButton" to="Buttons" method="_on_CreateButton_pressed"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="Inputs/Name2" to="Inputs" method="_on_Name_text_changed"]
+[connection signal="text_changed" from="Inputs/Room2" to="Inputs" method="_on_Room_text_changed"]
+[connection signal="pressed" from="Buttons/JoinButton" to="Buttons" method="_on_JoinButton_pressed"]
+[connection signal="pressed" from="Buttons/CreateButton" to="Buttons" method="_on_CreateButton_pressed"]

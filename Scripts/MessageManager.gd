@@ -4,6 +4,7 @@ onready var events = get_node("/root/Events")
 onready var player_vars = get_node("/root/PlayerVariables")
 
 func send(message):
+	print("sending...", message)
 	player_vars.websocket_client.get_peer(1).put_packet(JSON.print(message).to_utf8())
 
 func receive(message):

@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Fonts/GermaniaOne-Regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=3]
 size = 24
 font_data = ExtResource( 2 )
 
@@ -23,14 +23,17 @@ margin_left = 0.325989
 margin_top = -0.16803
 margin_right = 0.294006
 margin_bottom = 0.0239868
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 0.104
 margin_right = 2.0
 margin_bottom = 0.0559998
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 7 )
 text = "Condiciones de victoria"
 align = 1
 valign = 1
@@ -44,8 +47,8 @@ margin_left = 0.125222
 margin_top = 11.4958
 margin_right = 0.0152283
 margin_bottom = 21.4256
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 8 )
 text = "Los fascistas ganan si se cumple al menos una de las siguientes condiciones:"
 autowrap = true
 
@@ -56,8 +59,8 @@ anchor_bottom = 1.0
 margin_top = -0.140656
 margin_right = -0.368042
 margin_bottom = 0.40799
+custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 9 )
 text = "- Haber promulgado 5 leyes fascistas.
 
 - Haber promulgado 3 leyes fascistas y tener electo a un presidente fascista.
