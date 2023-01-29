@@ -5,7 +5,7 @@ onready var player_vars = get_node("/root/PlayerVariables")
 onready var message_manager = get_node("/root/MessageManager")
 
 var initial_x_position = 80
-var initial_y_position = 100
+var initial_y_position = -15
 var x_padding = 100
 
 func _ready():

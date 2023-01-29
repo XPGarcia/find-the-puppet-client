@@ -4,7 +4,7 @@ onready var events = get_node("/root/Events")
 onready var card_event_manager = get_node("/root/CardEventManager")
 onready var player_vars = get_node("/root/PlayerVariables")
 
-onready var animator = get_node("AnimationPlayer")
+#onready var animator = get_node("AnimationPlayer")
 onready var drop_zone = get_node("/root/Game/RightSide/Board/DropZone")
 
 var card

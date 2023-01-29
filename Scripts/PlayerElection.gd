@@ -9,9 +9,9 @@ onready var players_container = get_node("VotingPanel/Board/Players")
 onready var omit_button = get_node("VotingPanel/Board/OmitButton")
 
 var initial_x_position = 50
-var initial_y_position = 50
-var x_padding = 150
-var y_padding = 150
+var initial_y_position = 10
+var x_padding = 20
+var y_padding = 20
 
 func _ready():
 	events.connect("voting_on_going", self, "_on_update")
@@ -35,10 +35,13 @@ func _set_title_label():
 		title_label.text = "Esperando a otros jugadores"
 	else:
 		title_label.text = player_vars.status
-		
+
+
+
 func _filter_players():
 	var player_list = []
 	for player in player_vars.game.players:
+	#for player in players:
 		if player.playerId == player_vars.playerId:
 			continue
 		player_list.append(player)

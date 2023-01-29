@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 onready var player_vars = get_node("/root/PlayerVariables")
 onready var message_manager = get_node("/root/MessageManager")

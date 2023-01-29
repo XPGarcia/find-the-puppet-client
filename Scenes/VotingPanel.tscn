@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/GermaniaOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/VotingPanel.gd" type="Script" id=2]
+[ext_resource path="res://puppet.tres" type="Theme" id=3]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 1 )
 
@@ -18,32 +19,41 @@ margin_top = -4.0
 margin_right = 159.0
 margin_bottom = 52.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.960784, 0.960784, 1 )
 text = "Votacion"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NoButton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 160.0
-margin_right = 193.0
-margin_bottom = 20.0
+margin_left = 185.198
+margin_top = 1.25992
+margin_right = 218.198
+margin_bottom = 35.2599
+theme = ExtResource( 3 )
 text = "NO"
-icon_align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="YesButton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 120.0
-margin_right = 153.0
-margin_bottom = 20.0
+margin_left = 135.119
+margin_right = 168.119
+margin_bottom = 34.0
+theme = ExtResource( 3 )
 text = "SI"
-icon_align = 1
-
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]
 [connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]

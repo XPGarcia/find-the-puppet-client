@@ -8,10 +8,18 @@
 
 config_version=4
 
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
 [application]
 
 config/name="Find the Puppet"
 run/main_scene="res://Scenes/StartMenu.tscn"
+boot_splash/image="res://Assets/bg/splash.png"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+config/icon="res://Assets/icons/titere.png"
 
 [autoload]
 
@@ -25,9 +33,10 @@ PlayerUpgrades="*res://Scripts/PlayerUpgrades.gd"
 
 [display]
 
-window/size/width=900
-window/size/height=900
+window/size/width=1200
 window/size/resizable=false
+window/stretch/mode="2d"
+window/stretch/aspect="keep_height"
 
 [gui]
 

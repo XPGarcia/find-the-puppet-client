@@ -1,65 +1,109 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://Assets/decoration/black-lines.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/GermaniaOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/icons/mdi_close-box.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/FacistWinCondition.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.862745, 0.862745, 0.862745, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=9]
-size = 24
+[sub_resource type="DynamicFont" id=3]
+size = 20
 font_data = ExtResource( 2 )
 
-[node name="FacistWinCondition" type="Control"]
-anchor_left = 0.227
-anchor_top = 0.466
-anchor_right = 0.763
-anchor_bottom = 0.862
-margin_left = 0.325989
-margin_top = -0.16803
-margin_right = 0.294006
-margin_bottom = 0.0239868
+[node name="FacistWinCondition" type="Node2D"]
+position = Vector2( -2.7994, 0.88764 )
+scale = Vector2( 0.516191, 0.551994 )
+script = ExtResource( 4 )
 
-[node name="Title" type="Label" parent="."]
+[node name="Panel" type="Panel" parent="."]
+margin_left = -23.0
+margin_top = -36.0
+margin_right = 657.0
+margin_bottom = 258.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 0.104
-margin_right = 2.0
-margin_bottom = 0.0559998
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 7 )
+margin_left = 23.0
+margin_top = 12.0
+margin_right = 25.0
+margin_bottom = 37.2696
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.192157, 0.184314, 0.184314, 1 )
 text = "Condiciones de victoria"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Panel"]
 anchor_left = 0.032
 anchor_top = 0.122
 anchor_right = 0.937
 anchor_bottom = 0.254
-margin_left = 0.125222
-margin_top = 11.4958
-margin_right = 0.0152283
-margin_bottom = 21.4256
+margin_left = 21.9466
+margin_top = 40.6384
+margin_right = 21.8367
+margin_bottom = 58.8304
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 8 )
 text = "Los fascistas ganan si se cumple al menos una de las siguientes condiciones:"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Conditions" type="RichTextLabel" parent="."]
+[node name="Conditions" type="RichTextLabel" parent="Panel"]
 anchor_top = 0.393
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -0.140656
-margin_right = -0.368042
-margin_bottom = 0.40799
+margin_left = 23.0
+margin_top = 21.7696
+margin_right = 22.632
+margin_bottom = 22.3182
+custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 9 )
 text = "- Haber promulgado 5 leyes fascistas.
 
 - Haber promulgado 3 leyes fascistas y tener electo a un presidente fascista.
 
 - Eliminar o destituir a todos los demócratas."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="TextureButton" parent="Panel"]
+margin_left = 624.0
+margin_top = 9.0
+margin_right = 666.0
+margin_bottom = 46.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Panel"]
+position = Vector2( 350.374, 65.665 )
+scale = Vector2( 0.295151, 0.252144 )
+texture = ExtResource( 1 )
+[connection signal="pressed" from="Panel/Close" to="." method="_on_Close_pressed"]

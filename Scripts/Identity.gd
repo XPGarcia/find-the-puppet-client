@@ -3,11 +3,11 @@ extends Node2D
 onready var events = get_node("/root/Events")
 onready var player_vars = get_node("/root/PlayerVariables")
 
-onready var democrat_win_condition = get_node("DemocratWinCondition")
-onready var facist_win_condition = get_node("FacistWinCondition")
+onready var democrat_win_condition = get_node("Images/Info/DemocratWinCondition")
+onready var facist_win_condition = get_node("Images/Info/FacistWinCondition")
 
-var democrat_sprite = preload("res://Assets/Democratic.png")
-var facist_sprite = preload("res://Assets/Facist.png")
+var democrat_sprite = preload("res://Assets/identity/democrats.png")
+var facist_sprite = preload("res://Assets/identity/facists.png")
 
 onready var role_label = get_node("RoleLabel")
 onready var role_sprite = get_node("Images/Role/RoleImage")
@@ -33,10 +33,10 @@ func _update_role_sprite_and_win_condition():
 	if player_vars.get_role() == "fascista":
 		role_sprite.set_texture(facist_sprite)
 		_update_partner_sprite()
-		facist_win_condition.visible = true
+
 	else:
 		role_sprite.set_texture(democrat_sprite)
-		democrat_win_condition.visible = true
+
 		
 func _update_partner_sprite():
 	var partner = _get_fascist_partner()
@@ -56,3 +56,10 @@ func _get_fascist_partner():
 		if player.playerId == partnerId:
 			partner = player
 	return partner	
+
+
+func _on_Info_pressed():
+	if player_vars.get_role() == "fascista":
+		facist_win_condition.show()
+	else:
+		democrat_win_condition.show()

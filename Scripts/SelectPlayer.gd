@@ -8,11 +8,10 @@ onready var title_label = get_node("VotingPanel/Board/TitleLabel")
 onready var players_container = get_node("VotingPanel/Board/Players")
 onready var omit_button = get_node("VotingPanel/Board/OmitButton")
 
-var initial_x_position = 50
-var initial_y_position = 50
-var x_padding = 150
-var y_padding = 150
-
+var initial_x_position = 5
+var initial_y_position = 10
+var x_padding = 20
+var y_padding = 20
 
 func _ready():
 	_set_player_profiles()
@@ -66,3 +65,4 @@ func _set_profile_position(profile_scene, index):
 		y_position = initial_y_position + y_padding
 	var position = Vector2(x_position, y_position)
 	profile_scene.set_position(position)
+
