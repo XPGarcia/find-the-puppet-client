@@ -2,4 +2,4 @@
 
 [node name="RoleImage" type="Sprite"]
 position = Vector2( 115, 105 )
-scale = Vector2( 0.315, 0.315 )
+scale = Vector2( 0.4, 0.4 )

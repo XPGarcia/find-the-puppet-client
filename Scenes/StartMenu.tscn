@@ -42,10 +42,10 @@ __meta__ = {
 }
 
 [node name="BG" type="TextureRect" parent="."]
-anchor_left = 0.497927
-anchor_top = 0.493908
-anchor_right = 0.497927
-anchor_bottom = 0.505575
+anchor_left = 0.487927
+anchor_top = 0.490575
+anchor_right = 0.511261
+anchor_bottom = 0.512242
 margin_left = -598.513
 margin_top = -298.345
 margin_right = 599.487

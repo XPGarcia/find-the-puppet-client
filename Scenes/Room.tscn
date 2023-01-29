@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Assets/bg/bg_room.png" type="Texture" id=1]
 [ext_resource path="res://puppet.tres" type="Theme" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Fonts/GermaniaOne-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/players/player-base.png" type="Texture" id=9]
 [ext_resource path="res://Assets/icons/info.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/ProfileImage.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/GermaniaOne-Regular.ttf"
@@ -81,6 +82,30 @@ expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.746582, 0.413505, 0.0204144, 1 )
+border_width_bottom = 70
+border_color = Color( 0.439616, 0.241174, 0.006869, 1 )
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.968627, 0.533333, 0.0196078, 1 )
+border_width_bottom = 70
+border_color = Color( 0.717647, 0.392157, 0.00784314, 1 )
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color( 0.811765, 0.431373, 0.027451, 0.6 )
+shadow_size = 25
+
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0.968627, 0.533333, 0.0196078, 1 )
 border_width_bottom = 70
 border_color = Color( 0.717647, 0.392157, 0.00784314, 1 )
@@ -91,14 +116,14 @@ corner_radius_bottom_left = 40
 expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="DynamicFontData" id=16]
+[sub_resource type="DynamicFontData" id=18]
 font_path = "res://Fonts/GermaniaOne-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=19]
 size = 400
-font_data = SubResource( 16 )
+font_data = SubResource( 18 )
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 1, 0.568627, 0.0588235, 1 )
 border_width_bottom = 5
 border_color = Color( 0.870588, 0.329412, 0.0392157, 1 )
@@ -108,7 +133,7 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.968627, 0.533333, 0.0196078, 1 )
 border_width_bottom = 8
 border_color = Color( 0.717647, 0.392157, 0.00784314, 1 )
@@ -118,11 +143,11 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 expand_margin_bottom = 5.0
 
-[sub_resource type="DynamicFontData" id=20]
+[sub_resource type="DynamicFontData" id=22]
 font_path = "res://Fonts/GermaniaOne-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=21]
-font_data = SubResource( 20 )
+[sub_resource type="DynamicFont" id=23]
+font_data = SubResource( 22 )
 
 [node name="Room" type="Control"]
 anchor_right = 1.0
@@ -192,10 +217,10 @@ margin_right = 243.864
 margin_bottom = 45.023
 
 [node name="room" type="Panel" parent="GameStatus/Room"]
-margin_left = -6.8252
-margin_top = 14.4126
-margin_right = 240.175
-margin_bottom = 67.4126
+margin_left = -7.0
+margin_top = 14.0
+margin_right = 193.0
+margin_bottom = 67.0
 custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -203,9 +228,9 @@ __meta__ = {
 
 [node name="clipboard" type="Label" parent="GameStatus/Room"]
 visible = false
-margin_left = 255.164
+margin_left = 207.164
 margin_top = 20.5422
-margin_right = 575.164
+margin_right = 527.164
 margin_bottom = 57.5422
 custom_styles/normal = SubResource( 4 )
 custom_fonts/font = SubResource( 6 )
@@ -233,10 +258,10 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -197.394
-margin_top = 15.8914
-margin_right = -19.3938
-margin_bottom = 15.8914
+margin_left = -242.537
+margin_top = 17.0139
+margin_right = -64.5372
+margin_bottom = 17.0139
 focus_mode = 1
 mouse_filter = 1
 custom_fonts/font = SubResource( 9 )
@@ -244,6 +269,9 @@ custom_colors/font_color = Color( 0.941176, 0.803922, 0.462745, 1 )
 text = "10"
 align = 2
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Host" type="Control" parent="GameStatus"]
 anchor_left = 0.993
@@ -257,9 +285,9 @@ margin_bottom = 45.023
 
 [node name="Label" type="Label" parent="GameStatus/Host"]
 anchor_bottom = 1.0
-margin_left = 140.37
+margin_left = 90.9816
 margin_top = 10.0
-margin_right = 339.37
+margin_right = 289.982
 margin_bottom = 9.99999
 custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.156863, 0.152941, 0.156863, 1 )
@@ -273,12 +301,12 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -217.0
-margin_top = 12.0
-margin_right = -16.0
-margin_bottom = 12.0
+margin_left = -225.98
+margin_top = 9.75507
+margin_right = -24.9797
+margin_bottom = 9.75507
 custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 0.168627, 0.156863, 0.00392157, 1 )
+custom_colors/font_color = Color( 0.321569, 0.298039, 0.00392157, 1 )
 text = "Pamela"
 align = 2
 valign = 1
@@ -291,18 +319,7 @@ margin_left = 81.4983
 margin_top = 168.748
 margin_right = 896.498
 margin_bottom = 340.748
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player2" type="TextureRect" parent="GameStatus/player-avatar"]
-margin_left = 172.0
-margin_right = 283.0
-margin_bottom = 160.0
-rect_pivot_offset = Vector2( 19, 55.9103 )
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 5
+rect_pivot_offset = Vector2( -254.049, -54.6526 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -319,6 +336,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ProfileImage1" parent="GameStatus/player-avatar/Player1" instance=ExtResource( 11 )]
+position = Vector2( 54.7858, 56.8537 )
+scale = Vector2( 0.625466, 0.649582 )
+
+[node name="Player2" type="TextureRect" parent="GameStatus/player-avatar"]
+margin_left = 172.0
+margin_right = 283.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( -439.263, -26.4132 )
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProfileImage2" parent="GameStatus/player-avatar/Player2" instance=ExtResource( 11 )]
+position = Vector2( 55.2858, 57.1972 )
+scale = Vector2( 0.655642, 0.664211 )
+
 [node name="Player3" type="TextureRect" parent="GameStatus/player-avatar"]
 margin_left = 348.0
 margin_right = 459.0
@@ -329,6 +366,10 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ProfileImage3" parent="GameStatus/player-avatar/Player3" instance=ExtResource( 11 )]
+position = Vector2( 54.7858, 57.1972 )
+scale = Vector2( 0.648499, 0.66421 )
 
 [node name="Player4" type="TextureRect" parent="GameStatus/player-avatar"]
 margin_left = 524.0
@@ -343,6 +384,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ProfileImage4" parent="GameStatus/player-avatar/Player4" instance=ExtResource( 11 )]
+position = Vector2( 54.7859, 58.1972 )
+scale = Vector2( 0.662785, 0.678496 )
+
 [node name="Player5" type="TextureRect" parent="GameStatus/player-avatar"]
 margin_left = 700.0
 margin_right = 811.0
@@ -353,6 +398,10 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ProfileImage5" parent="GameStatus/player-avatar/Player5" instance=ExtResource( 11 )]
+position = Vector2( 55.7858, 56.6972 )
+scale = Vector2( 0.634214, 0.657068 )
 
 [node name="PlayerNames" type="Control" parent="GameStatus"]
 anchor_top = 0.269
@@ -469,13 +518,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 995.0
 margin_top = 84.0
-margin_right = -840.0
-margin_bottom = 9.0
+margin_right = -929.0
+margin_bottom = -61.0
 rect_pivot_offset = Vector2( -859, -144 )
 theme = ExtResource( 2 )
 custom_styles/hover = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
-custom_fonts/font = SubResource( 17 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
+custom_fonts/font = SubResource( 19 )
 icon = ExtResource( 4 )
 expand_icon = true
 __meta__ = {
@@ -491,9 +542,9 @@ margin_left = -1083.41
 margin_top = -561.951
 margin_right = -985.413
 margin_bottom = -476.951
-custom_styles/hover = SubResource( 18 )
-custom_styles/normal = SubResource( 19 )
-custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+custom_fonts/font = SubResource( 23 )
 icon = ExtResource( 3 )
 expand_icon = true
 script = ExtResource( 7 )

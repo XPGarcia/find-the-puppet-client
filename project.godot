@@ -17,6 +17,9 @@ _global_script_class_icons={
 
 config/name="Find the Puppet"
 run/main_scene="res://Scenes/StartMenu.tscn"
+boot_splash/image="res://Assets/bg/splash.png"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+config/icon="res://Assets/icons/titere.png"
 
 [autoload]
 

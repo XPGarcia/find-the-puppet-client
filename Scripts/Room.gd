@@ -31,9 +31,13 @@ func _update_player_position_labels():
 	var position = 1
 	for player in player_vars.clients:
 		var path = "PlayerNames/PlayerName" + str(position)
+		var sprite = load("res://Assets/" + player.playerProfile)
+		var avatar = get_node("player-avatar/Player"+ str(position) + "/ProfileImage"+str(position))
+		avatar.set_texture(sprite)
 		var playerName = get_node(path)
 		playerName.text = str(position) + ". " + player.playerName
 		position = position + 1
+		
 
 
 func _on_RoomId_mouse_entered():

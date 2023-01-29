@@ -1,33 +1,59 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://Assets/bg/bg_game.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/GermaniaOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/bg/sheet.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/SelectPlayer.gd" type="Script" id=4]
+[ext_resource path="res://Assets/decoration/black-lines.png" type="Texture" id=5]
+[ext_resource path="res://components/OmitButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/decoration/dagger.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 48
+size = 36
 font_data = ExtResource( 2 )
 
 [node name="PlayerElection" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="BG" type="Sprite" parent="."]
-position = Vector2( 450, 450 )
-scale = Vector2( 0.88, 0.88 )
+position = Vector2( 599.671, 302.111 )
+scale = Vector2( 1.00473, 1.02848 )
+texture = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+margin_left = -418.526
+margin_top = -294.517
+margin_right = 419.474
+margin_bottom = 236.483
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="BG"]
+position = Vector2( -140.1, -155.956 )
+scale = Vector2( 0.316038, 0.354577 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="BG"]
+position = Vector2( 19.3154, -204.841 )
+scale = Vector2( 0.066305, 0.0851549 )
+texture = ExtResource( 7 )
 
 [node name="VotingPanel" type="Node2D" parent="."]
-position = Vector2( 450, 450 )
+position = Vector2( 314.836, 367.654 )
 
 [node name="Board" type="Sprite" parent="VotingPanel"]
 
 [node name="TitleLabel" type="Label" parent="VotingPanel/Board"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -718.0
-margin_top = -230.0
-margin_right = -74.0
-margin_bottom = -195.0
+margin_left = -187.569
+margin_top = -286.326
+margin_right = 456.431
+margin_bottom = -230.326
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.113281, 0.112396, 0.113281, 1 )
 text = "Selecciona un jugador"
 align = 1
 valign = 1
@@ -37,4 +63,11 @@ __meta__ = {
 }
 
 [node name="Players" type="Node2D" parent="VotingPanel/Board"]
-position = Vector2( -270, -150 )
+position = Vector2( -54.971, -202.87 )
+scale = Vector2( 8, 8 )
+
+[node name="OmitButton" parent="VotingPanel/Board" instance=ExtResource( 6 )]
+margin_left = 185.386
+margin_top = 71.0583
+margin_right = 435.386
+margin_bottom = 131.058

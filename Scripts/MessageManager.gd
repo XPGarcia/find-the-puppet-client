@@ -4,25 +4,24 @@ onready var events = get_node("/root/Events")
 onready var player_vars = get_node("/root/PlayerVariables")
 
 func send(message):
-	print("sending...", message)
 	player_vars.websocket_client.get_peer(1).put_packet(JSON.print(message).to_utf8())
 
 func receive(message):
 	if message.responseType == "connection":
 		player_vars.playerId = message.playerId
 		return
-		
+
 	if player_vars.eliminated:
 		var _scene = get_tree().change_scene("res://Scenes/Eliminated.tscn")
 		return
-		
+
 	if "status" in message and (message.status == "FASCISTS_WON" or message.status == "DEMOCRATS_WON"):
 		player_vars.status = message.status
 		var _scene = get_tree().change_scene("res://Scenes/EndGame.tscn")
 		return
-	
+
 	_update_player_vars(message)
-	
+
 	if message.responseType == "room":
 		_handle_room_message(message)
 		return
@@ -38,7 +37,7 @@ func receive(message):
 	elif message.responseType == "card":
 		_handle_card_message(message)
 		return
-	
+
 func _update_player_vars(message):
 	player_vars.roomId = message.roomId
 	player_vars.clients = message.clients
@@ -46,7 +45,7 @@ func _update_player_vars(message):
 		player_vars.hostName = message.hostName
 	if player_vars.playerProfile == null or player_vars.playerProfile == "":
 		player_vars.update_profile()
-		
+
 func _handle_room_message(message):
 	if "status" in message:
 		player_vars.status = message.status
@@ -63,36 +62,36 @@ func _handle_room_message(message):
 	events.emit_signal("game_updated")
 	if player_vars.status == "INROOM":
 		var _scene = get_tree().change_scene("res://Scenes/Room.tscn")
-	
+
 func _handle_game_message(message):
 	var game = JSON.parse(message.message).result
 	if "message" in game and game.message != null:
 		player_vars.game_message = game.message
-	
+
 	_handle_new_turn(game)
 	_handle_new_round(game)
 	player_vars.game = game
-	
+
 	_set_player_status(message)
-		
+
 	events.emit_signal("game_updated")
-	
+
 	if get_tree().current_scene.name != "Game":
 		var _scene = get_tree().change_scene("res://Scenes/Game.tscn")
-		
+
 func _handle_deck_message(message):
 	var cards = JSON.parse(message.message).result
 	player_vars.add_cards(cards)
 	events.emit_signal("game_updated")
-	
+
 func _handle_voting_message(message):
 	_set_player_status(message)
-	
+
 	var data = JSON.parse(message.message).result
 	if "message" in data:
 			player_vars.game_message = data.message
 			events.emit_signal("set_game_message")
-			
+
 	if "card" in data:
 		player_vars.card_on_board = data.card
 		events.emit_signal("put_card_on_board")
@@ -100,28 +99,28 @@ func _handle_voting_message(message):
 		player_vars.game = data.game
 		_set_player_status(message)
 		events.emit_signal("game_updated")
-		
+
 	events.emit_signal("voting_on_going")
-	
+
 func _handle_card_message(message):
 	if "status" in message:
 		player_vars.status = message.status
-	
+
 	var data = JSON.parse(message.message).result
-	
+
 	if "message" in data:
 		player_vars.game_message = data.message
 		events.emit_signal("set_game_message")
-		
+
 	if "game" in data:
 		events.emit_signal("game_updated")
-		
+
 	if "card" in data:
 		player_vars.card_on_board = data.card
 		events.emit_signal("put_card_on_board")
 	else:
 		player_vars.card_on_board = null
-	
+
 func _set_player_status(message):
 	if "status" in message:
 		player_vars.status = message.status
@@ -129,11 +128,11 @@ func _set_player_status(message):
 		player_vars.status = "PLAYING"
 	else:
 		player_vars.status = "WAITING"
-		
+
 func _handle_new_round(new_game):
 	if player_vars.game.size() == 0 or player_vars.game.roundsPlayed == new_game.roundsPlayed:
 		return
-		
+
 	var data = {
 		"playerId": player_vars.playerId,
 		"roomId": player_vars.roomId,
@@ -146,10 +145,10 @@ func _handle_new_round(new_game):
 	else:
 		data.action = "startEliminateVoting"
 		send(data)
-		
+
 func _handle_new_turn(new_game):
 	if player_vars.game.size() == 0 or player_vars.game.turnsPlayed == new_game.turnsPlayed:
 		return
-		
+
 	player_vars.card_on_board = null
 	player_vars.game_message = ""
