@@ -61,8 +61,8 @@ margin_left = 20.6711
 margin_top = 56.5541
 margin_right = 20.5611
 margin_bottom = 82.1656
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Los demócratas ganan si se cumple al menos una de las siguientes condiciones:"
 autowrap = true
 __meta__ = {
@@ -77,14 +77,11 @@ margin_left = 30.9966
 margin_top = 24.3883
 margin_right = 30.6285
 margin_bottom = 24.6347
-custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "- Haber promulgado 8 leyes demócratas.
+custom_fonts/normal_font = SubResource( 5 )
+text = "- Haber promulgado 7 leyes demócratas.
 
 - Eliminar o destituir a todos los fascistas."
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Title" type="Label" parent="Panel"]
 anchor_right = 1.0
@@ -93,8 +90,8 @@ margin_left = 2.02032
 margin_top = 13.0474
 margin_right = 4.02032
 margin_bottom = 38.3171
-custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.254902, 0.247059, 0.227451, 1 )
+custom_fonts/font = SubResource( 7 )
 text = "Condiciones de victoria"
 align = 1
 valign = 1
@@ -106,4 +103,5 @@ __meta__ = {
 position = Vector2( 327.543, 65.1763 )
 scale = Vector2( 0.27458, 0.250847 )
 texture = ExtResource( 2 )
+
 [connection signal="pressed" from="Panel/Close" to="." method="_on_Close_pressed"]

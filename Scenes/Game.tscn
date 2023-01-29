@@ -56,6 +56,10 @@ font_data = ExtResource( 23 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 131, 101.25 )
 
+[sub_resource type="DynamicFont" id=10]
+size = 24
+font_data = ExtResource( 23 )
+
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.0470588, 0.0431373, 0.0431373, 1 )
 corner_radius_top_left = 10
@@ -66,10 +70,6 @@ expand_margin_left = 3.0
 expand_margin_right = 3.0
 expand_margin_top = 3.0
 expand_margin_bottom = 3.0
-
-[sub_resource type="DynamicFont" id=10]
-size = 24
-font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFontData" id=11]
 font_path = "res://Fonts/GermaniaOne-Regular.ttf"
@@ -116,8 +116,8 @@ margin_left = 50.5295
 margin_top = 32.1091
 margin_right = 273.529
 margin_bottom = 64.1091
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.184314, 0.184314, 0.184314, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Leyes promulgadas"
 align = 1
 valign = 1
@@ -136,8 +136,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "1."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,8 +152,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "2."
 
 [node name="Law3" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -165,8 +165,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "3."
 
 [node name="Law4" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -178,8 +178,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "4."
 
 [node name="Law5" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -191,8 +191,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "5."
 
 [node name="Law6" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -204,8 +204,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "6."
 
 [node name="Law7" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -217,8 +217,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "7."
 
 [node name="Law8" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -230,8 +230,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "8."
 
 [node name="Law9" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -243,8 +243,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 20.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "9."
 
 [node name="Law10" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -256,8 +256,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 30.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "10."
 
 [node name="Law11" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -269,8 +269,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 31.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "11."
 
 [node name="Law12" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -282,8 +282,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 30.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "12."
 
 [node name="Law13" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -295,8 +295,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 30.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "13."
 
 [node name="Law14" type="Node2D" parent="LeftSide/Laws/LawsContainer"]
@@ -308,8 +308,8 @@ anchor_bottom = 0.5
 margin_top = -5.5
 margin_right = 31.0
 margin_bottom = 22.5
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "14."
 
 [node name="Identity" type="Node2D" parent="LeftSide"]
@@ -329,8 +329,8 @@ margin_left = 74.7651
 margin_top = -30.4423
 margin_right = 280.765
 margin_bottom = 5.55771
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Tu Identidad"
 align = 1
 valign = 1
@@ -355,8 +355,8 @@ margin_left = 23.3265
 margin_top = 118.0
 margin_right = 166.326
 margin_bottom = 177.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.992157, 0.980392, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Pamela eres demócrata"
 align = 1
 valign = 1
@@ -392,15 +392,17 @@ margin_right = 22.0
 margin_bottom = 19.0
 texture_normal = ExtResource( 24 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="DemocratWinCondition" parent="LeftSide/Identity/Images/Info" instance=ExtResource( 15 )]
 visible = false
+position = Vector2( 260, -300 )
+z_index = 10
 
 [node name="FacistWinCondition" parent="LeftSide/Identity/Images/Info" instance=ExtResource( 14 )]
 visible = false
+position = Vector2( 260, -300 )
+scale = Vector2( 1, 1 )
+z_index = 10
 
 [node name="RightSide" type="Node2D" parent="."]
 position = Vector2( 346.771, 7.37389 )
@@ -456,8 +458,8 @@ margin_left = 15.5903
 margin_top = 122.384
 margin_right = 15.5903
 margin_bottom = -177.616
-custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Presidente:"
 align = 1
 valign = 1
@@ -479,8 +481,8 @@ margin_left = -780.938
 margin_top = 366.363
 margin_right = -780.938
 margin_bottom = 366.363
-custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.945098, 0.945098, 0.945098, 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Pamela"
 align = 1
 valign = 1
@@ -504,8 +506,8 @@ margin_left = 348.0
 margin_top = 518.0
 margin_right = -387.0
 margin_bottom = -635.0
-custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.227451, 0.227451, 0.227451, 1 )
+custom_fonts/font = SubResource( 6 )
 text = "4 día(s)"
 align = 1
 valign = 1
@@ -547,8 +549,8 @@ margin_left = 22.7705
 margin_top = 26.3332
 margin_right = 140.771
 margin_bottom = 62.3332
-custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.945098, 0.576471, 0, 1 )
+custom_fonts/font = SubResource( 7 )
 text = "Día 1"
 valign = 1
 __meta__ = {
@@ -567,26 +569,23 @@ margin_left = 20.8184
 margin_top = 65.2499
 margin_right = 359.818
 margin_bottom = 119.25
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.823529, 0.796078, 0.796078, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 9 )
 text = "Xavi esta jugando"
 align = 1
 valign = 1
 autowrap = true
 script = ExtResource( 21 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="RightSide/Board/GameStatusLabel"]
 margin_left = 9.0
 margin_top = -3.0
 margin_right = 49.0
 margin_bottom = 48.0
-custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 0.552941, 0.0235294, 1 )
+custom_fonts/font = SubResource( 12 )
 text = "|"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -600,8 +599,8 @@ margin_left = 30.0
 margin_top = -20.306
 margin_right = 270.0
 margin_bottom = 78.694
-custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 13 )
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -613,5 +612,6 @@ script = ExtResource( 11 )
 
 [node name="PlayerElection" parent="." instance=ExtResource( 22 )]
 visible = false
+
 [connection signal="pressed" from="LeftSide/Identity/Images/Info" to="LeftSide/Identity" method="_on_Info_pressed"]
 [connection signal="pressed" from="RightSide/Board/EndButton" to="RightSide/Board/EndButton" method="_on_EndButton_pressed"]

@@ -21,7 +21,7 @@ func _on_update():
 		player_in_turn_index = _new_player_in_turn_index(player_in_turn_index)
 		
 func _set_player_container(player_container, player):
-	var sprite = load("res://Assets/" + player.playerProfile)
+	var sprite = load("res://Assets/players/" + player.playerProfile)
 	player_container.set_texture(sprite)
 	player_container.get_node("Name").visible = true
 	player_container.get_node("Name").text = player.playerName

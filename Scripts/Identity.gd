@@ -26,7 +26,7 @@ func _update_role_text():
 	role_label.text = player_vars.playerName + " eres " + player_vars.get_role()
 	
 func _update_player_sprite():
-	var sprite = load("res://Assets/" + player_vars.playerProfile)
+	var sprite = load("res://Assets/players/" + player_vars.playerProfile)
 	profile_sprite.set_texture(sprite)
 	
 func _update_role_sprite_and_win_condition():
@@ -42,7 +42,7 @@ func _update_partner_sprite():
 	var partner = _get_fascist_partner()
 	if partner == null:
 		return
-	var partner_profile = load("res://Assets/" + partner.playerProfile)
+	var partner_profile = load("res://Assets/players/" + partner.playerProfile)
 	profile_partner_sprite.visible = true
 	profile_partner_sprite.set_texture(partner_profile)
 	

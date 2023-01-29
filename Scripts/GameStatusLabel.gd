@@ -10,6 +10,9 @@ func _ready():
 	events.connect("put_card_on_board", self, "_on_update")
 
 func _on_update():
+	if player_vars.game_message != null and player_vars.game_message != "":
+		return
+	
 	var player_in_turn = player_vars.get_player_in_turn()
 	if player_vars.status == "LAW_VOTING":
 		self.text = player_in_turn.playerName + " propuso una nueva ley"

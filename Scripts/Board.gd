@@ -7,6 +7,7 @@ onready var message_manager = get_node("/root/MessageManager")
 onready var round_label = get_node("RoundLabel")
 onready var drop_zone = get_node("DropZone")
 onready var game_message_label = get_node("GameMessage")
+onready var game_status_label = get_node("GameStatusLabel")
 
 var card_scene
 
@@ -31,10 +32,13 @@ func _on_card_placed():
 #		_remove_card_from_board()
 		
 func _set_game_message_label():
-	if player_vars.game_message != null:
-		game_message_label.text = player_vars.game_message
-	else:
-		game_message_label.text = ""
+#	if player_vars.game_message != null:
+#		game_message_label.text = player_vars.game_message
+#	else:
+#		game_message_label.text = ""
+	
+	if player_vars.game_message != null and player_vars.game_message != null:
+		game_status_label.text = player_vars.game_message
 
 func _place_card_on_board():
 	if card_scene == null:

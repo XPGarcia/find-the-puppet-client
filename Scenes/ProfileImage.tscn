@@ -16,25 +16,25 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "default",
-"speed": 5.05
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "No",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "Yes",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "Voting",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Yes",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.05
 } ]
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -77,8 +77,8 @@ margin_left = -180.426
 margin_top = -105.949
 margin_right = 41.5744
 margin_bottom = 23.3107
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.968627, 0.533333, 0.0196078, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Pamela"
 align = 1
 valign = 1
@@ -109,4 +109,5 @@ custom_styles/normal = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="SelectedButton" to="." method="_on_SelectedButton_pressed"]

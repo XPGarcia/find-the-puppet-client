@@ -45,7 +45,7 @@ func _load_player_profile(player):
 	return profile_scene
 		
 func _set_profile_texture(profile_scene, player):
-	var profile_texture = load("res://Assets/" + player.playerProfile)
+	var profile_texture = load("res://Assets/players/" + player.playerProfile)
 	profile_scene.set_texture(profile_texture)
 	profile_scene.scale = Vector2(0.1, 0.1)
 	profile_scene.get_node("SelectedButton").visible = true

@@ -31,7 +31,7 @@ func _update_player_position_labels():
 	var position = 1
 	for player in player_vars.clients:
 		var path = "PlayerNames/PlayerName" + str(position)
-		var sprite = load("res://Assets/" + player.playerProfile)
+		var sprite = load("res://Assets/players/" + player.playerProfile)
 		var avatar = get_node("player-avatar/Player"+ str(position) + "/ProfileImage"+str(position))
 		avatar.set_texture(sprite)
 		var playerName = get_node(path)

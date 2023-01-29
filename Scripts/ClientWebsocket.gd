@@ -1,7 +1,7 @@
 extends Node
 
-#var websocket_url = "wss://34.201.249.229"
-var websocket_url = "ws://localhost:3000"
+var websocket_url = "wss://34.201.249.229"
+#var websocket_url = "ws://localhost:3000"
 
 var _client = WebSocketClient.new()
 
@@ -26,7 +26,7 @@ func _closed(was_clean = false):
 	print("Closed, clean: ", was_clean)
 	set_process(false)
 
-func _connected():
+func _connected(proto = ""):
 	_client.get_peer(1).put_packet("{}".to_utf8())
 
 func _on_data():

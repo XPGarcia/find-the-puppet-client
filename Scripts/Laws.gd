@@ -25,6 +25,6 @@ func _load_law_scene():
 func _load_player_profile_scene(player):
 	var player_resource = load("res://Scenes/LawPlayerProfile.tscn")
 	var player_scene = player_resource.instance()
-	var player_profile = load("res://Assets/" + player.playerProfile)
+	var player_profile = load("res://Assets/players/" + player.playerProfile)
 	player_scene.set_texture(player_profile)
 	return player_scene
